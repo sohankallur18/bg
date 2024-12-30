@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bussiness Case 4</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="m-0">Bussiness Case 4 : </h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto py-0">
+                      
+                        <div class="nav-item dropdown">
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <a href="" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+                </div>
+            </nav>
+
+            <div class="container-xxl bg-primary hero-header">
+                <div class="container px-lg-5">
+                    <div class="row g-5 align-items-end">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="text-white mb-4 animated slideInDown">Business Case: Efficient Inventory Management</h1>
+                            <p class="text-white pb-3 animated slideInDown">Description:
+                                In the fast-paced world of business, effective inventory management is the key to thriving in competitive markets. Imagine a network of warehouses and retail stores connected through various transportation routes. The challenge lies in determining the most cost-effective and efficient way to transport goods between these locations. This involves finding the shortest paths while considering factors like transportation costs, delivery time, and route availability.</p>
+                            <p class="text-white pb-3 animated slideInDown">Efficient inventory management helps businesses: <br>
+
+                                <q>Minimize logistics costs.</q> <br>
+                                <q>Avoid overstocking or understocking.</q> <br>
+                                <q>Ensure timely delivery of goods.</q> <br>
+                               <q>Boost customer satisfaction.</q> <br>
+                            </p>
+                            <p class="text-white pb-3 animated slideInDown">By leveraging advanced graph-based algorithms, we can optimize the supply chain and improve decision-making. Each warehouse and retail store is represented as a node, while transportation routes between them are modeled as edges with weights denoting transportation costs or times.
+
+                            </p>
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <img class="img-fluid animated zoomIn" src="img/Screenshot 2024-12-30 231852.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+        <!-- Facts Start -->
+        <div class="container-xxl bg-primary fact py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-4">
+                    <p class="text-white pb-3 animated slideInDown"><span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span><br>
+                        <span class="keyword">#include</span> <span class="string">&lt;vector&gt;</span><br>
+                        <span class="keyword">#include</span> <span class="string">&lt;queue&gt;</span><br>
+                        <span class="keyword">#include</span> <span class="string">&lt;limits&gt;</span><br>
+                        <span class="keyword">#include</span> <span class="string">&lt;algorithms&gt;</span><br>
+                        
+                    
+                        
+                        const int INF = 1e9;<br>
+                        
+                
+                        void printDistances(vector<int>& dist, int n) { <br>
+                            for (int i = 0; i < n; i++) { <br>
+                                if (dist[i] == INF) cout << "INF "; <br>
+                                else cout << dist[i] << " "; <br>
+                            } <br>
+                            cout << endl; <br>
+                        } <br>
+                    
+                        void dijkstra(vector<vector<pair<int, int>>>& graph, int src, int n) { <br>
+                            vector<int> dist(n, INF); <br>
+                            vector<bool> visited(n, false); <br>
+                            dist[src] = 0; <br>
+                        
+                            for (int i = 0; i < n; i++) { <br>
+                                int u = -1; <br>
+                                for (int j = 0; j < n; j++) { <br>
+                                    if (!visited[j] && (u == -1 || dist[j] < dist[u])) u = j; <br>
+                                } <br>
+                                if (dist[u] == INF) break; <br>
+                                visited[u] = true; <br>
+                        
+                                for (auto edge : graph[u]) { <br>
+                                    int v = edge.first, weight = edge.second; <br>
+                                    if (dist[u] + weight < dist[v]) { <br>
+                                        dist[v] = dist[u] + weight; <br>
+                                    } <br>
+                                } <br>
+                            } <br>
+                        
+                            cout << "Dijkstra's distances from source " << src << ": "; <br>
+                            printDistances(dist, n); <br>
+                        } <br>
+                        
+                      
+                        void bellmanFord(vector<vector<pair<int, int>>>& edges, int src, int n) { <br>
+                            vector<int> dist(n, INF); <br>
+                            dist[src] = 0; <br>
+                        
+                            for (int i = 1; i < n; i++) { <br>
+                                for (auto edge : edges) { <br>
+                                    int u = edge[0], v = edge[1], weight = edge[2]; <br>
+                                    if (dist[u] != INF && dist[u] + weight < dist[v]) { <br>
+                                        dist[v] = dist[u] + weight; <br>
+                                    } <br>
+                                } <br>
+                            } <br>
+                        
+                            
+                            for (auto edge : edges) { <br>
+                                int u = edge[0], v = edge[1], weight = edge[2]; <br>
+                                if (dist[u] != INF && dist[u] + weight < dist[v]) { <br>
+                                    cout << "Graph contains a negative weight cycle.\n"; <br>
+                                    return; <br>
+                                } <br>
+                            } <br>
+                        
+                            cout << "Bellman-Ford distances from source " << src << ": "; <br>
+                            printDistances(dist, n); <br>
+                        } <br>
+                   
+                        void floydWarshall(vector<vector<int>>& graph, int n) { <br>
+                            vector<vector<int>> dist = graph; <br>
+                        
+                            for (int k = 0; k < n; k++) { <br>
+                                for (int i = 0; i < n; i++) { <br>
+                                    for (int j = 0; j < n; j++) { <br>
+                                        if (dist[i][k] != INF && dist[k][j] != INF)  { <br>
+                                            dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]); <br>
+                                        } <br>
+                                    }<br>
+                                } <br>
+                            } <br>
+                        
+                            cout << "Floyd-Warshall distance matrix:\n";<br>
+                            for (int i = 0; i < n; i++) { <br>
+                                printDistances(dist[i], n); <br>
+                            } <br>
+                        } <br>
+                        
+                        int main() { <br>
+                            int n = 5; <br>
+                            vector<vector<pair<int, int>>> graph(n);<br>
+                            vector<vector<int>> matrix(n, vector<int>(n, INF));<br>
+                            vector<vector<pair<int, int>>> edges;<br>
+                        
+               
+                            graph[0].push_back({1, 10});<br>
+                            graph[0].push_back({2, 3});<br>
+                            graph[1].push_back({2, 1});<br>
+                            graph[1].push_back({3, 2});<br>
+                            graph[2].push_back({3, 8});<br>
+                            graph[3].push_back({4, 7});<br>
+                            graph[4].push_back({0, 5});<br>
+                        
+                            for (int i = 0; i < n; i++) matrix[i][i] = 0;<br>
+                            for (int u = 0; u < n; u++) {<br>
+                                for (auto v : graph[u]) {<br>
+                                    matrix[u][v.first] = v.second;<br>
+                                    edges.push_back({u, v.first, v.second});<br>
+                                }<br>
+                            }<br>
+                        
+                            dijkstra(graph, 0, n);<br>
+                            bellmanFord(edges, 0, n);<br>
+                            floydWarshall(matrix, n);<br>
+                        
+                            return 0;<br>
+                        }
+                    </p>                     
+                </div>
+            </div>
+        </div>
+        <!-- Facts End -->
+
+
+        <!-- Service Start -->
+        <div class="container-xxl py-5">
+            <div class="container py-5 px-lg-5">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="section-title text-secondary justify-content-center"><span></span>Implementation<span></span></p>
+                    <h1 class="text-center mb-5">Overview</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-search fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Dijkstra's Algorithm: </h5>
+                            <p class="m-0">Designed for finding the shortest path from a single source to all other nodes. It's ideal for networks with non-negative weights.</p>
+                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fa fa-laptop-code fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Bellman-Ford Algorithm:</h5>
+                            <p class="m-0">Extends Dijkstra's capabilities by handling graphs with negative weight edges, enabling better versatility in real-world scenarios.</p>
+                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item d-flex flex-column text-center rounded">
+                            <div class="service-icon flex-shrink-0">
+                                <i class="fab fa-facebook-f fa-2x"></i>
+                            </div>
+                            <h5 class="mb-3">Floyd-Warshall Algorithm:</h5>
+                            <p class="m-0">Computes shortest paths between all pairs of nodes, making it perfect for analyzing the entire supply chain at once.</p>
+                            <a class="btn btn-square" href=""><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-3">
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-lg-5">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">DAA portfolio</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">Sohan Kallur</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
